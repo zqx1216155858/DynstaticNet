@@ -45,11 +45,6 @@ Key contributions include:
 - tqdm
 - pyyaml
 
-Install dependencies:
-
-```bash
-pip install -r requirements.txt
-```
 
 ---
 
@@ -65,12 +60,10 @@ All videos are split into **10-frame clips**, and we ensure **no overlap** betwe
 
 Expected directory structure:
 
-- `data/MWVD/train/rain/` — 1000 clips  
-- `data/MWVD/train/haze/` — 1000 clips  
-- `data/MWVD/train/snow/` — 1000 clips  
-- `data/MWVD/test/rain/` — 100 clips  
-- `data/MWVD/test/haze/` — 100 clips  
-- `data/MWVD/test/snow/` — 100 clips
+- `data/MWVD/train/input/` — 1350 clips(haze:450, rain:450, snow:450)
+- `data/MWVD/train/gt/` — 1350 clips(haze:450, rain:450, snow:450)
+- `data/MWVD/test/input/` — 150 clips(haze:50, rain:50, snow:50)
+- `data/MWVD/test/gt/` — 150 clips(haze:50, rain:50, snow:50)  
 
 To process and organize data:
 
@@ -111,9 +104,9 @@ python main_eval.py --config configs/eval.yaml --checkpoint pretrained/dynstatic
 - **Embedding dimension**: 24  
 - **3DASA attention heads**: [1, 2, 4]  
 - **Blocks per stage**: [4, 6, 8]; refinement stage contains 4 blocks  
-- **Batch size**: 4  
+- **Batch size**: 1 
 - **Each input**: 10 consecutive frames  
-- **Input shape**: `[4, 10, 3, H, W]`  
+- **Input shape**: `[1, 10, 3, H, W]`  
 - **Patch size**: 128 × 128  
 - **Augmentation**: Random rotation, horizontal flipping  
 - **Optimizer**: Adam  
@@ -123,21 +116,11 @@ python main_eval.py --config configs/eval.yaml --checkpoint pretrained/dynstatic
 
 ## 📊 Pretrained Models
 
-| Model        | Dataset | PSNR (dB) | SSIM  | FLOPs (G) | Download |
-|--------------|---------|-----------|-------|-----------|----------|
-| DynStaticNet | MWVD    | 32.41     | 0.918 | 48.7      | [Coming Soon](#) |
-
+| Model        | Dataset | PSNR (dB) |  SSIM  | LPIPS | FLOPs (G) | Download |
+|--------------|---------|-----------|--------|-------|-----------|----------|
+| DynStaticNet | MWVD    | 28.19     | 0.9166 |0.0582 | 48.7      | [Coming Soon](#) |
 ---
 
-## 🧪 Ablation Results
-
-| Variant | Spatial Branch | Convolution Type | PSNR ↑ | SSIM ↑ |
-|---------|----------------|------------------|--------|--------|
-| M1      | ❌              | —                | XX.XX  | 0.XXX  |
-| M2      | ✅              | Vanilla Conv     | XX.XX  | 0.XXX  |
-| M3      | ✅              | MGAConv          | **XX.XX** | **0.XXX** |
-
----
 
 ## 💻 Code Availability
 
@@ -155,9 +138,9 @@ If you find our work helpful, please consider citing:
 ```bibtex
 @article{your2024dynstaticnet,
   title={DynStaticNet: Dynamic-Static Dual-Branch Network for Multi-Weather Video Restoration},
-  author={Your Name and Co-authors},
+  author={Tao Gao, Qianxi Zhang, Ting Chen, Yuanbo Wen, Ziqi Li and Tao Lei},
   journal={TBD},
-  year={2024}
+  year={2025}
 }
 ```
 
@@ -165,7 +148,7 @@ If you find our work helpful, please consider citing:
 
 ## 📬 Contact
 
-- 📧 Email: zqx1216155858@xxx.com  
+- 📧 Email: zqx1216@chd.due.cn 
 - 🐛 Issues: Please open an issue in this repository
 
 © 2024 DynStaticNet Authors. Released under the [MIT License](LICENSE).
