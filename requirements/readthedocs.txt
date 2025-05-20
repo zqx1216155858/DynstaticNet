@@ -1,0 +1,5 @@
+lmdb
+regex
+scikit-image
+titlecase
+torchvision
