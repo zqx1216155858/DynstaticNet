@@ -24,12 +24,9 @@ Key contributions include:
 
 - `configs/` — YAML configs for training/testing  
 - `data/` — Dataset loader and preprocessing scripts  
-- `models/` — Model architecture: DynStaticNet, 3DASA, MGAConv  
-- `scripts/` — Shell scripts for automation  
-- `utils/` — Helper functions and tools  
-- `pretrained/` — Pretrained checkpoints (download separately)  
-- `main_train.py` — Training entry point  
-- `main_eval.py` — Evaluation entry point  
+- `mmedit/` — Model architecture: DynStaticNet, 3DASA, MGAConv  
+- `train.py` — Training entry point  
+- `test.py` — Testing entry point  
 - `README.md` — This file
 
 ---
@@ -78,23 +75,23 @@ bash scripts/prepare_dataset.sh
 To train DynStaticNet:
 
 ```bash
-python main_train.py --config configs/train_dynstatic.yaml
+python train.py --config configs/train_dynstatic.yaml
 ```
 
 To resume training from checkpoint:
 
 ```bash
-python main_train.py --resume --checkpoint pretrained/latest.pth
+python train.py --resume --checkpoint pretrained/latest.pth
 ```
 
 ---
 
 ## 📈 Evaluation
 
-To evaluate a pretrained model:
+To test:
 
 ```bash
-python main_eval.py --config configs/eval.yaml --checkpoint pretrained/dynstaticnet.pth
+python test.py --config configs/eval.yaml --checkpoint pretrained/dynstaticnet.pth
 ```
 
 ---
