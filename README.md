@@ -112,7 +112,7 @@ python test.py --config configs/eval.yaml --checkpoint pretrained/dynstaticnet.p
 
 | Model        | Dataset | PSNR (dB) |  SSIM  | LPIPS | FLOPs (G) | Download |
 |--------------|---------|-----------|--------|-------|-----------|----------|
-| DynStaticNet | MWVD    | 28.19     | 0.9166 |0.0582 | 48.7      |  [last.pth](https://pan.quark.cn/s/e6c7f1052908)) |
+| DynStaticNet | MWVD    | 28.19     | 0.9166 |0.0582 | 48.7      |  [last.pth](https://pan.quark.cn/s/e6c7f1052908) |
 ---
 
 
