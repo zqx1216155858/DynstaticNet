@@ -52,6 +52,8 @@ We reorganize three publicly available datasets into a unified **Multi-Weather V
 - 🌧️ [RainSynAll100](https://github.com/lsy17096535/PRN)
 - 🌫️ [HazeWorld](https://github.com/volcanoscout/HazeWorld)
 - ❄️ [RVSD (Snow)](https://github.com/chenyanglei/SnowFormer)
+- ☀ [MWVD (All-in-One)](https://pan.quark.cn/s/dd3befe3f549)
+
 
 All videos are split into **10-frame clips**, and we ensure **no overlap** between training and test sets.
 
@@ -62,11 +64,6 @@ Expected directory structure:
 - `data/MWVD/test/input/` — 150 clips(haze:50, rain:50, snow:50)
 - `data/MWVD/test/gt/` — 150 clips(haze:50, rain:50, snow:50)  
 
-To process and organize data:
-
-```bash
-bash scripts/prepare_dataset.sh
-```
 
 ---
 
@@ -115,7 +112,7 @@ python test.py --config configs/eval.yaml --checkpoint pretrained/dynstaticnet.p
 
 | Model        | Dataset | PSNR (dB) |  SSIM  | LPIPS | FLOPs (G) | Download |
 |--------------|---------|-----------|--------|-------|-----------|----------|
-| DynStaticNet | MWVD    | 28.19     | 0.9166 |0.0582 | 48.7      | [Coming Soon](#) |
+| DynStaticNet | MWVD    | 28.19     | 0.9166 |0.0582 | 48.7      |  [last.pth](https://pan.quark.cn/s/e6c7f1052908)) |
 ---
 
 
